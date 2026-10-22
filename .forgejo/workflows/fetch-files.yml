@@ -1,0 +1,69 @@
+name: Shell e depois Python
+
+on:
+  schedule:
+    - cron: '0 */4 * * *'
+
+jobs:
+  executar-sequencia:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Passo 1 - Executar Shell Script
+        run: |
+          sudo apt update
+          sudo apt upgrade -y
+          sudo apt install -y tor git
+          sudo systemctl start tor
+          mkdir -p /tmp/repositories/gentoo/gentoo
+          git clone https://github.com/gentoo/gentoo.git /tmp/repositories/gentoo/gentoo
+          git -C /tmp/repositories/gentoo rev-parse HEAD > /tmp/repositories/gentoo/gentoo/timestamp-commit
+
+      - name: Passo 2 - Executar Python Puro
+        run: |
+          python3 -c '
+            from pathlib import Path; import sys
+
+            import os, shutil
+            destino_path = Path(os.environ.get("GITHUB_WORKSPACE"))
+
+            repos_path = Path("/tmp/repositories")
+            data = {
+                "gentoo": {"rename": [("app-admin/doas", "app-admin/open-doas")], }
+            }
+
+            for repo in repos_path.iterdir():
+                if repo.is_dir():
+                    #apagar ficheiros desnecessários
+                    keeps = [gitkeep for gitkeep in repo.rglob("*.gitkeep")]
+                    para_deletação = [".git", ".editorconfig", ".gitignore", ".gitattributes", ".github", "README.md", "LICENSE", "COPYING", "CHANGELOG.md", ".mailmap", "header.txt", "skel.ebuild", "skel.metadata.xml"]
+                    for item in para_deletação:
+                        item_path = repo / item
+                        if item_path.exists():
+                            if item_path.is_dir():
+                                for sub_item in item_path.rglob("*"):
+                                    sub_item.unlink()
+                                item_path.rmdir()
+                            else:
+                                item_path.unlink()
+                        else:
+                            pass
+                    for keep in keeps:
+                        if keep.exists():
+                            keep.unlink()
+                    #rename
+                    for i in data.get(key=repo.name).get(key="rename"):
+                        antigo = Path(repo / i[1])
+                        novo_nome = str(repo / i[2])
+                        Path(repo / "")
+
+
+                for item_origem in repo.rglob('*'):
+                    rel_path = item_origem.relative_to(repo)
+                    item_destino = destino_path / rel_path
+                    if item_origem.is_file() and item_destino.exists():
+                        print(f"Conflito detetado: O ficheiro '{rel_path}' já existe em ambas as pastas.")
+                        print("A interromper a operação para evitar substituições.")
+                        sys.exit(1)
+                shutil.copytree(repo, destino_path, dirs_exist_ok=True)
+                print(f"Pasta {repo.name} mesclada ao repositório com sucesso!")
+          '
