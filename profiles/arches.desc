@@ -13,18 +13,18 @@
 
 alpha		testing
 amd64		stable
-arm		stable
+arm		    testing
 arm64		stable
 hppa		testing
 loong		testing
 m68k		testing
 mips		testing
-ppc		stable
-ppc64		stable
+ppc		    testing
+ppc64		testing
 riscv		testing
 s390		testing
 sparc		testing
-x86		stable
+x86		    testing
 
 # Prefix keywords
 arm64-macos	testing
