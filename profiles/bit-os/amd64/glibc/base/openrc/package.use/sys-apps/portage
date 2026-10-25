@@ -1,0 +1,1 @@
+sys-apps/portage apidoc -gentoo-dev -ipc -native-extensions rsync-verify xattr -build -doc selinux -test

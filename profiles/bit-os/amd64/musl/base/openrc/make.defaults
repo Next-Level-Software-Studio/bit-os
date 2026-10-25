@@ -1,0 +1,12 @@
+CFLAGS="-02 -pipe -march=native -fstack-protector-strong -fstack-clash-protection -D_FORTIFY_SOURCE=3 -fomit-frame-pointer"
+EMERGE_DEFAULT_OPS="--with-bdeps=y --verbose=y --quiet-build=n --keep-going --update --deep --changed-use"
+LC_MESSAGES=C.UTF-8
+USE="verify-sig selinux seccomp filecaps openrc doc handbook -systemd verify-provenance musl"
+FEATURES="selinux sesandbox sfperms -pid-sandbox parallel-fetch splitdebug compressdebug usersandbox fail-clean"
+DISTDIR="/var/cache/portage/distfiles"
+PKGDIR="/var/cache/portage/binpkgs/"
+ABI_X86="64"
+POLICY_TYPES="targeted mls"
+PORTAGE_T="portage_t"
+PORTAGE_FETCH_T="portage_fetch_t"
+PORTAGE_SANDBOX_T="portage_sandbox_t"

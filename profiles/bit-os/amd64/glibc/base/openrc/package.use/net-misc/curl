@@ -1,0 +1,1 @@
+net-misc/curl verify-sig -test -static-libs -debug -samba -ldap idn adns -zstd -brotli psl -ssh -sasl-scram -kerberos ech websockets -telnet -smtp -ftp ssl rustls -gnutls -openssl -httpsrr hsts alt-svc -quic -http3 -http2 -tftp -pop3 -imap -mbedtls -curl_ssl_openssl

@@ -1,0 +1,1 @@
+net-misc/wget libproxy -cookie-check -metalink -ntlm -uuid -debug gnutls idn nls -pcre ssl -static -test -zlib

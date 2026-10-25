@@ -1,0 +1,1 @@
+dev-vcs/git -cgi curl gpg -highlight -performance -rust safe-directory -tk -cvs doc iconv nls selinux -test -xinetd

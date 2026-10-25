@@ -1,0 +1,1 @@
+app-admin/clsync -apidoc cgroups -clsync -extra-debug extra-hardened -cluster -control-socket -gio -highload-locks namespaces -socket-library caps -debug -doc -examples hardened -inotify -mhash seccomp -static-libs

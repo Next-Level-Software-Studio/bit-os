@@ -1,0 +1,1 @@
+app-admin/eclean-kernel -test -zstd -lzo -lz4

@@ -1,0 +1,1 @@
+app-admin/ansible-molecule selinux -test verify-provenance

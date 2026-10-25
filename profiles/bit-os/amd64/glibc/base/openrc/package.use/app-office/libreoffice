@@ -1,0 +1,1 @@
+app-office/libreoffice -kde -qt6 -gtk3 -gtk4 -gtk -vulkan custom-cflags -debug -googledrive -bluetooth cups dbus -eds -ldap -mariadb -postgres -java -base pdfimport -odk gstreamer -accessibility -test -valgrind -branding coinmp

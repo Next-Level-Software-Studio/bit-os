@@ -1,0 +1,1 @@
+sys-fs/btrfs-progs man -static-libs udev verify-sig -zstd -experimental -reiserfs -static

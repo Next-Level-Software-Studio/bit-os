@@ -1,0 +1,1 @@
+app-admin/conserver -ipv6 -ssl -test verify-sig
