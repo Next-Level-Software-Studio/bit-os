@@ -6,7 +6,8 @@ repos = {
     "gentoo": "https://github.com/gentoo/gentoo.git",
     "npo": "http://nextlevlehng64k4zhaqzu4ulz3jote5xvobsi65dtqvy7bkwra7gzyd.onion/git/Next-Level-Software-Studio/npo.git",
     "steam-overlay": "https://github.com/anyc/steam-overlay.git",
-    "torbrowser": ""
+    "torbrowser": "https://github.com/MeisterP/torbrowser-overlay",
+    "science": "https://anongit.gentoo.org/git/proj/sci.git"
 }
 repos_path = Path("/tmp/repositories")
 exclude_packages = ["app-admin/doas::gentoo"]
